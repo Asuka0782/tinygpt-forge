@@ -1,0 +1,33 @@
+[model]
+vocab_size = 128
+max_seq_len = 64
+d_model = 64
+n_layers = 2
+n_heads = 4
+n_kv_heads = 2
+d_ff = 192
+rope_base = 10000.0
+rms_norm_eps = 0.00001
+dropout = 0.0
+tie_embeddings = true
+attention_backend = "sdpa"
+
+[training]
+batch_size = 8
+block_size = 32
+max_steps = 20
+gradient_accumulation_steps = 2
+learning_rate = 0.001
+weight_decay = 0.01
+beta1 = 0.9
+beta2 = 0.95
+grad_clip = 1.0
+eval_interval = 10
+eval_batches = 5
+validation_fraction = 0.1
+test_fraction = 0.1
+seed = 42
+device = "cpu"
+dtype = "float32"
+fused_optimizer = true
+

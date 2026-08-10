@@ -1,0 +1,38 @@
+TinyGPT Forge is a small laboratory for understanding next-token prediction.
+A token enters an embedding table and becomes a vector.
+RMSNorm controls scale without subtracting the mean.
+RoPE rotates query and key pairs so attention can represent relative positions.
+Causal attention lets position t read positions zero through t, but never the future.
+SwiGLU expands, gates, and projects each token independently.
+Residual paths carry information around attention and the feed-forward network.
+
+The teaching path writes the attention matrix explicitly.
+The systems path asks PyTorch SDPA to choose an available kernel.
+Both paths use the same parameters and should agree within a stated tolerance.
+A fast result is useful only after the output and gradients are checked.
+
+During training, input x is paired with target y shifted by exactly one token.
+Validation chooses checkpoints; test data is evaluated after choices are fixed.
+The random seed, data fingerprint, configuration, device, and raw measurements belong in the run record.
+During generation, a KV cache reuses old keys and values instead of recomputing the prefix.
+GQA stores fewer key and value heads than query heads, reducing cache memory.
+
+TinyGPT Forge is a small laboratory for understanding next-token prediction.
+A token enters an embedding table and becomes a vector.
+RMSNorm controls scale without subtracting the mean.
+RoPE rotates query and key pairs so attention can represent relative positions.
+Causal attention lets position t read positions zero through t, but never the future.
+SwiGLU expands, gates, and projects each token independently.
+Residual paths carry information around attention and the feed-forward network.
+
+The teaching path writes the attention matrix explicitly.
+The systems path asks PyTorch SDPA to choose an available kernel.
+Both paths use the same parameters and should agree within a stated tolerance.
+A fast result is useful only after the output and gradients are checked.
+
+During training, input x is paired with target y shifted by exactly one token.
+Validation chooses checkpoints; test data is evaluated after choices are fixed.
+The random seed, data fingerprint, configuration, device, and raw measurements belong in the run record.
+During generation, a KV cache reuses old keys and values instead of recomputing the prefix.
+GQA stores fewer key and value heads than query heads, reducing cache memory.
+

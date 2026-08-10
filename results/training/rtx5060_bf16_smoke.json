@@ -1,0 +1,98 @@
+{
+  "format": "tinygpt-forge-gpu-smoke-v1",
+  "status": "completed",
+  "started_utc": "2026-08-10T09:05:42.964135+00:00",
+  "finished_utc": "2026-08-10T09:05:44.519142+00:00",
+  "duration_seconds_this_invocation": 1.555007,
+  "source": {
+    "name": "tiny_corpus.txt",
+    "sha256": "c8a844771fca30c51b48571da03c5be984f32f65a26571f96340a917a267f147"
+  },
+  "tokenizer": {
+    "format": "character",
+    "vocab_size": 51,
+    "fingerprint": "50a1d83533d526d3888ddc807621ac588fe78afb074cd7382b14a764341766dc",
+    "validation_oov": 0,
+    "test_oov": 0
+  },
+  "split_tokens": {
+    "train": 1932,
+    "validation": 241,
+    "test": 241
+  },
+  "model_config": {
+    "vocab_size": 51,
+    "max_seq_len": 64,
+    "d_model": 64,
+    "n_layers": 2,
+    "n_heads": 4,
+    "n_kv_heads": 2,
+    "d_ff": 192,
+    "rope_base": 10000.0,
+    "rms_norm_eps": 0.00001,
+    "dropout": 0.1,
+    "tie_embeddings": true,
+    "attention_backend": "sdpa"
+  },
+  "training_config": {
+    "batch_size": 8,
+    "block_size": 32,
+    "max_steps": 5,
+    "gradient_accumulation_steps": 2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "grad_clip": 1.0,
+    "eval_interval": 5,
+    "eval_batches": 5,
+    "validation_fraction": 0.1,
+    "test_fraction": 0.1,
+    "seed": 42,
+    "device": "cuda",
+    "dtype": "bfloat16",
+    "fused_optimizer": true
+  },
+  "environment": {
+    "python": "3.14.3",
+    "torch": "2.11.0+cu128",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "driver": "592.01",
+    "memory_total_mib_reported_by_nvidia_smi": 8151,
+    "fused_optimizer_effective": true
+  },
+  "parameter_count": 101888,
+  "best_step": 5,
+  "best_validation_loss": 3.5510009765625,
+  "best_validation_perplexity": 34.8481822489634,
+  "test_loss_last": 3.571923828125,
+  "test_perplexity_last": 35.58498674009792,
+  "history": [
+    {
+      "step": 0,
+      "validation_loss": 3.975390625,
+      "validation_perplexity": 53.27092179584248
+    },
+    {
+      "step": 5,
+      "validation_loss": 3.5510009765625,
+      "validation_perplexity": 34.8481822489634,
+      "train_loss": 3.61279296875
+    }
+  ],
+  "inference": {
+    "checkpoint": "best",
+    "device": "cuda",
+    "prompt": "TinyGPT",
+    "max_new_tokens": 16,
+    "output": "TinyGPT                "
+  },
+  "limitations": [
+    "The bundled corpus is a smoke fixture, not a language-quality dataset.",
+    "This is one short run on one laptop GPU, not a throughput benchmark.",
+    "The repetitive generated output only proves checkpoint reload and CUDA generation.",
+    "No model weights or local run directory are included in the public artifact."
+  ]
+}

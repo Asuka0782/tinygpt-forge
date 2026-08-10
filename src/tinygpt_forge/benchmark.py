@@ -302,6 +302,10 @@ def run_benchmark(
     sdpa_p50 = sdpa_prefill["p50"]
     cached_p50 = cached_decode["p50"]
     static_p50 = static_decode["p50"]
+    flash_attention_checker = getattr(torch.backends.cuda, "is_flash_attention_available", None)
+    flash_attention_compiled = bool(
+        target.type == "cuda" and callable(flash_attention_checker) and flash_attention_checker()
+    )
     document: dict[str, Any] = {
         "format": "tinygpt-forge-benchmark-v2",
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
@@ -347,11 +351,7 @@ def run_benchmark(
             "multiprocessor_count": (
                 device_properties.multi_processor_count if device_properties is not None else None
             ),
-            "flash_attention_compiled": (
-                torch.backends.cuda.is_flash_attention_available()
-                if target.type == "cuda"
-                else False
-            ),
+            "flash_attention_compiled": flash_attention_compiled,
             "sdpa_operator_names": (
                 _sdpa_operator_names(model, input_ids)
                 if target.type == "cuda"

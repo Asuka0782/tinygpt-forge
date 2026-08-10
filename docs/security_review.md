@@ -64,9 +64,11 @@ artifacts; signed release attestations remain future work.
 The library declares compatible runtime ranges while developer tools are pinned. This is appropriate
 for a reusable Python package but means a future resolver can choose different compatible wheels.
 The CI definition pins and separates the minimum declared combination (Python 3.10, PyTorch 2.3.0)
-from the current combination (Python 3.14, PyTorch 2.13.0). These jobs remain unverified until they
-run on GitHub Actions. Users needing a frozen experiment should capture the complete resolved
-environment and install only from trusted indexes.
+from the current combination (Python 3.14, PyTorch 2.13.0). Both test jobs, the minimum-runtime mypy
+job, Ruff, and a wheel-install smoke passed in the
+[published CI run](https://github.com/Asuka0782/tinygpt-forge/actions/runs/31381403820).
+Users needing a frozen experiment should still capture the complete resolved environment and
+install only from trusted indexes.
 
 ## Informational boundaries
 

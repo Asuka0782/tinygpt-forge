@@ -1,5 +1,7 @@
 # TinyGPT Forge
 
+[![CI](https://github.com/Asuka0782/tinygpt-forge/actions/workflows/ci.yml/badge.svg)](https://github.com/Asuka0782/tinygpt-forge/actions/workflows/ci.yml)
+
 [中文说明](README_zh.md)
 
 TinyGPT Forge is a correctness-first GPT systems lab: one model definition, a readable manual
@@ -130,6 +132,7 @@ External calls can transmit data and cost money. See [the provider security boun
 - [Project and tensor-shape contract](docs/00_project_overview.md)
 - [Optional API boundary](docs/09_serving_and_api.md)
 - [Security review and trust boundaries](docs/security_review.md)
+- [Release and CI evidence](docs/release_evidence.md)
 - [Benchmark method and conclusions](docs/10_benchmarks.md)
 - [Source and license decision matrix](docs/source_and_license_matrix.md)
 - [Roadmap and explicit non-goals](docs/roadmap.md)

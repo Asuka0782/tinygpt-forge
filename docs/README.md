@@ -24,3 +24,4 @@ Supporting governance/evidence documents:
 - [Model/experiment card](model_card.md)
 - [Roadmap](roadmap.md)
 - [Security review](security_review.md)
+- [Release and CI evidence](release_evidence.md)

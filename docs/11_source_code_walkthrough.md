@@ -1,4 +1,4 @@
-# Source walkthrough (v0.0.1 draft)
+# Source walkthrough (v0.0.1 source snapshot)
 
 This walkthrough follows the current source layout after the first API stabilization pass. Line
 references must be revalidated before release if code changes.

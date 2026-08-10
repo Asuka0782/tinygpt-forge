@@ -1,5 +1,7 @@
 # TinyGPT Forge
 
+[![CI](https://github.com/Asuka0782/tinygpt-forge/actions/workflows/ci.yml/badge.svg)](https://github.com/Asuka0782/tinygpt-forge/actions/workflows/ci.yml)
+
 [English README](README.md)
 
 TinyGPT Forge 是一个“正确性优先”的 GPT 系统实验室：用同一份模型定义和同一套参数，
@@ -125,6 +127,7 @@ tinygpt external-chat --prompt "Hello" --yes-i-understand-this-may-cost-money
 - [项目与 Tensor shape 契约](docs/00_project_overview.md)
 - [可选 API 边界](docs/09_serving_and_api.md)
 - [安全审查与信任边界](docs/security_review.md)
+- [发布与 CI 证据](docs/release_evidence.md)
 - [Benchmark 方法与结论](docs/10_benchmarks.md)
 - [来源与许可证决策表](docs/source_and_license_matrix.md)
 - [路线图与明确非目标](docs/roadmap.md)

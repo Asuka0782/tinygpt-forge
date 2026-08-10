@@ -1,0 +1,13 @@
+[model]
+vocab_size = 1024
+max_seq_len = 256
+d_model = 512
+n_layers = 8
+n_heads = 8
+n_kv_heads = 2
+d_ff = 1536
+rope_base = 10000.0
+rms_norm_eps = 0.00001
+dropout = 0.0
+tie_embeddings = true
+attention_backend = "sdpa"

@@ -1,0 +1,153 @@
+{
+  "format": "tinygpt-forge-benchmark-v1",
+  "timestamp_utc": "2026-08-10T08:02:32.268528+00:00",
+  "seed": 42,
+  "model_initialization": "random",
+  "model_config": {
+    "vocab_size": 512,
+    "max_seq_len": 256,
+    "d_model": 256,
+    "n_layers": 4,
+    "n_heads": 8,
+    "n_kv_heads": 2,
+    "d_ff": 768,
+    "rope_base": 10000.0,
+    "rms_norm_eps": 1e-05,
+    "dropout": 0.0,
+    "tie_embeddings": true,
+    "attention_backend": "sdpa"
+  },
+  "shape": {
+    "batch_size": 1,
+    "prompt_length": 128,
+    "new_tokens": 64
+  },
+  "method": {
+    "warmup": 3,
+    "repeats": 10,
+    "synchronization": "before and after every timed CUDA sample",
+    "decode": "end-to-end greedy generation including Python and token concatenation"
+  },
+  "environment": {
+    "python": "3.14.3",
+    "torch": "2.11.0+cu128",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "dtype": "float32",
+    "flash_attention_compiled": false,
+    "sdpa_operator_names": [
+      "aten::_efficient_attention_forward",
+      "aten::_scaled_dot_product_efficient_attention",
+      "aten::scaled_dot_product_attention"
+    ]
+  },
+  "correctness": {
+    "manual_sdpa_max_abs_error": 8.046627044677734e-07,
+    "full_cache_greedy_ids_exact": true
+  },
+  "results": {
+    "manual_prefill": {
+      "unit": "ms",
+      "repeats": 10,
+      "mean": 3.3240299999999996,
+      "stdev": 0.0625683990170402,
+      "p50": 3.3021000000000003,
+      "p90": 3.3831,
+      "min": 3.2428,
+      "max": 3.4625,
+      "peak_memory_bytes": 24656896,
+      "raw_samples_ms": [
+        3.3508,
+        3.2428,
+        3.2839,
+        3.3006,
+        3.2802,
+        3.3343,
+        3.3036,
+        3.4625,
+        3.2985,
+        3.3831
+      ]
+    },
+    "sdpa_prefill": {
+      "unit": "ms",
+      "repeats": 10,
+      "mean": 2.70866,
+      "stdev": 0.058376635356583814,
+      "p50": 2.70405,
+      "p90": 2.7653,
+      "min": 2.6357,
+      "max": 2.8419,
+      "peak_memory_bytes": 23608320,
+      "raw_samples_ms": [
+        2.7653,
+        2.6357,
+        2.6997,
+        2.709,
+        2.8419,
+        2.7084,
+        2.6692,
+        2.6752,
+        2.7136,
+        2.6686
+      ]
+    },
+    "full_decode": {
+      "unit": "ms",
+      "repeats": 10,
+      "mean": 243.61377000000002,
+      "stdev": 10.6777640521527,
+      "p50": 239.38965,
+      "p90": 247.5527,
+      "min": 236.6219,
+      "max": 272.6465,
+      "peak_memory_bytes": 24577536,
+      "raw_samples_ms": [
+        238.8524,
+        239.7497,
+        239.0296,
+        241.0355,
+        236.6219,
+        238.2491,
+        238.6373,
+        272.6465,
+        243.763,
+        247.5527
+      ]
+    },
+    "dynamic_cache_decode": {
+      "unit": "ms",
+      "repeats": 10,
+      "mean": 264.03764,
+      "stdev": 3.501043739991463,
+      "p50": 262.34465,
+      "p90": 266.863,
+      "min": 261.0737,
+      "max": 271.9152,
+      "peak_memory_bytes": 23609856,
+      "raw_samples_ms": [
+        261.7332,
+        271.9152,
+        265.9703,
+        261.0737,
+        262.9213,
+        261.768,
+        261.6662,
+        261.0962,
+        266.863,
+        265.3693
+      ]
+    },
+    "sdpa_over_manual_p50_speedup": 1.2211682476285572,
+    "dynamic_cache_over_full_p50_speedup": 0.9125005979729337,
+    "full_decode_tokens_per_second_p50": 267.3465623931528,
+    "dynamic_cache_tokens_per_second_p50": 243.9538980497601
+  },
+  "limitations": [
+    "This is a randomly initialized small model; it measures mechanisms, not quality.",
+    "One machine and one shape do not establish a general performance claim.",
+    "Dynamic cache concatenates tensors and can be slower for tiny workloads.",
+    "Power, temperature, and background-process variance are not controlled here."
+  ]
+}

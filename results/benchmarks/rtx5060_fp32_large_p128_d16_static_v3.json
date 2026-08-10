@@ -1,0 +1,255 @@
+{
+  "format": "tinygpt-forge-benchmark-v2",
+  "timestamp_utc": "2026-08-10T08:12:11.091484+00:00",
+  "seed": 42,
+  "model_initialization": "random",
+  "parameter_count": 24650240,
+  "model_config": {
+    "vocab_size": 1024,
+    "max_seq_len": 256,
+    "d_model": 512,
+    "n_layers": 8,
+    "n_heads": 8,
+    "n_kv_heads": 2,
+    "d_ff": 1536,
+    "rope_base": 10000.0,
+    "rms_norm_eps": 1e-05,
+    "dropout": 0.0,
+    "tie_embeddings": true,
+    "attention_backend": "sdpa"
+  },
+  "shape": {
+    "batch_size": 1,
+    "prompt_length": 128,
+    "new_tokens": 16
+  },
+  "method": {
+    "warmup": 3,
+    "repeats": 10,
+    "synchronization": "before and after every timed CUDA sample",
+    "decode": "end-to-end greedy generation including Python and token concatenation",
+    "single_token_decode": "one model call after a prefilled prompt; excludes prefill and sampling"
+  },
+  "environment": {
+    "python": "3.14.3",
+    "torch": "2.11.0+cu128",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "dtype": "float32",
+    "flash_attention_compiled": false,
+    "sdpa_operator_names": [
+      "aten::_efficient_attention_forward",
+      "aten::_scaled_dot_product_efficient_attention",
+      "aten::scaled_dot_product_attention"
+    ]
+  },
+  "correctness": {
+    "manual_sdpa_max_abs_error": 1.4901161193847656e-06,
+    "full_cache_greedy_ids_exact": true,
+    "full_static_cache_greedy_ids_exact": true,
+    "dynamic_single_token_max_abs_error": 9.5367431640625e-07,
+    "static_single_token_max_abs_error": 9.5367431640625e-07
+  },
+  "results": {
+    "manual_prefill": {
+      "unit": "ms",
+      "repeats": 10,
+      "mean": 6.869159999999999,
+      "stdev": 0.16998261479731794,
+      "p50": 6.8557500000000005,
+      "p90": 6.9851,
+      "min": 6.6674,
+      "max": 7.2464,
+      "peak_memory_bytes": 116327936,
+      "raw_samples_ms": [
+        6.8531,
+        6.7915,
+        6.7271,
+        6.6674,
+        6.7097,
+        6.8584,
+        6.9765,
+        6.8764,
+        7.2464,
+        6.9851
+      ]
+    },
+    "sdpa_prefill": {
+      "unit": "ms",
+      "repeats": 10,
+      "mean": 5.76736,
+      "stdev": 0.06133793823292933,
+      "p50": 5.758649999999999,
+      "p90": 5.8084,
+      "min": 5.702,
+      "max": 5.9091,
+      "peak_memory_bytes": 115279360,
+      "raw_samples_ms": [
+        5.9091,
+        5.7706,
+        5.7793,
+        5.7171,
+        5.7451,
+        5.702,
+        5.7891,
+        5.7467,
+        5.8084,
+        5.7062
+      ]
+    },
+    "full_decode": {
+      "unit": "ms",
+      "repeats": 10,
+      "mean": 112.14597,
+      "stdev": 9.904031792945068,
+      "p50": 114.8829,
+      "p90": 119.6954,
+      "min": 94.632,
+      "max": 122.935,
+      "peak_memory_bytes": 115739648,
+      "raw_samples_ms": [
+        94.632,
+        96.4117,
+        105.7366,
+        115.0595,
+        114.7063,
+        119.6014,
+        122.935,
+        119.6954,
+        118.3661,
+        114.3157
+      ]
+    },
+    "dynamic_cache_decode": {
+      "unit": "ms",
+      "repeats": 10,
+      "mean": 124.64741,
+      "stdev": 1.2501956135385823,
+      "p50": 124.4174,
+      "p90": 125.683,
+      "min": 123.1614,
+      "max": 126.9393,
+      "peak_memory_bytes": 115805184,
+      "raw_samples_ms": [
+        123.4572,
+        123.1614,
+        124.8338,
+        126.9393,
+        125.6578,
+        125.4474,
+        123.6558,
+        125.683,
+        123.6374,
+        124.001
+      ]
+    },
+    "static_cache_decode": {
+      "unit": "ms",
+      "repeats": 10,
+      "mean": 129.86029000000002,
+      "stdev": 3.116577873761894,
+      "p50": 129.51525,
+      "p90": 131.5138,
+      "min": 125.7352,
+      "max": 137.2258,
+      "peak_memory_bytes": 115936256,
+      "raw_samples_ms": [
+        125.7352,
+        129.763,
+        129.8406,
+        131.2817,
+        127.3814,
+        131.5138,
+        137.2258,
+        129.2675,
+        128.2678,
+        128.3261
+      ]
+    },
+    "full_single_token_decode": {
+      "unit": "ms",
+      "repeats": 10,
+      "mean": 7.35401,
+      "stdev": 0.21629551004740402,
+      "p50": 7.2826,
+      "p90": 7.4139,
+      "min": 7.2052,
+      "max": 7.9467,
+      "peak_memory_bytes": 115310080,
+      "raw_samples_ms": [
+        7.285,
+        7.3203,
+        7.2656,
+        7.336,
+        7.4139,
+        7.2529,
+        7.9467,
+        7.2802,
+        7.2052,
+        7.2343
+      ]
+    },
+    "dynamic_single_token_decode": {
+      "unit": "ms",
+      "repeats": 10,
+      "mean": 7.9143,
+      "stdev": 0.11225329492813212,
+      "p50": 7.9132,
+      "p90": 8.0184,
+      "min": 7.7675,
+      "max": 8.0946,
+      "peak_memory_bytes": 112949760,
+      "raw_samples_ms": [
+        7.9999,
+        8.0946,
+        8.0037,
+        8.0184,
+        7.8119,
+        7.8258,
+        7.9304,
+        7.896,
+        7.7675,
+        7.7948
+      ]
+    },
+    "static_single_token_decode": {
+      "unit": "ms",
+      "repeats": 10,
+      "mean": 8.12218,
+      "stdev": 0.27462931703985577,
+      "p50": 8.024750000000001,
+      "p90": 8.2601,
+      "min": 7.8536,
+      "max": 8.8205,
+      "peak_memory_bytes": 111892992,
+      "raw_samples_ms": [
+        8.1971,
+        8.1377,
+        8.2601,
+        8.8205,
+        8.0119,
+        7.9219,
+        8.0376,
+        7.9827,
+        7.9987,
+        7.8536
+      ]
+    },
+    "sdpa_over_manual_p50_speedup": 1.190513401578495,
+    "dynamic_cache_over_full_p50_speedup": 0.9233668281124666,
+    "static_cache_over_full_p50_speedup": 0.8870221846462096,
+    "dynamic_single_token_over_full_p50_speedup": 0.9203103674872366,
+    "static_single_token_over_full_p50_speedup": 0.9075173681423097,
+    "full_decode_tokens_per_second_p50": 139.2722502652701,
+    "dynamic_cache_tokens_per_second_p50": 128.5993759715281,
+    "static_cache_tokens_per_second_p50": 123.53757569089355
+  },
+  "limitations": [
+    "This is a randomly initialized small model; it measures mechanisms, not quality.",
+    "One machine and one shape do not establish a general performance claim.",
+    "Dynamic cache concatenates tensors and can be slower for tiny workloads.",
+    "Static cache allocation is included in each end-to-end generation sample.",
+    "Power, temperature, and background-process variance are not controlled here."
+  ]
+}

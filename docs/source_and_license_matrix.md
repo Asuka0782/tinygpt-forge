@@ -29,7 +29,7 @@ the affected file must preserve all required copyright and license notices.
 | Large-scale training organization | [TorchTitan](https://github.com/pytorch/torchtitan) | BSD-3-Clause | Manifest/checkpoint reference | Small safe manifest implemented | resume tests |
 | Speculative decoding | [Leviathan et al.](https://proceedings.mlr.press/v202/leviathan23a/leviathan23a.pdf) | ICML paper | Future prototype | No | N/A |
 | Optional compatible API | OpenAI-style chat-completions schema | Interface convention | Experimental, local-first | Client only | offline transport/security tests |
-| Reproducible benchmark figure | [Matplotlib](https://matplotlib.org/) and [NumPy](https://numpy.org/) | PSF-based + BSD-3-Clause | Optional plotting extra | JSON-driven script | regenerated PNG/PDF |
+| Tensor serialization bridge and benchmark figure | [NumPy](https://numpy.org/) and [Matplotlib](https://matplotlib.org/) | BSD-3-Clause + PSF-based | NumPy runtime; Matplotlib plotting extra | Yes | clean-CI checkpoint tests and regenerated PNG/PDF |
 
 Core papers: [RoPE](https://arxiv.org/abs/2104.09864),
 [RMSNorm](https://papers.neurips.cc/paper_files/paper/2019/file/1e8a19426224ca89e83cef47f1e7f53b-Paper.pdf),

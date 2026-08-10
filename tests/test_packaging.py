@@ -21,6 +21,14 @@ class PackagingContractTests(unittest.TestCase):
         self.assertEqual(project["license-files"], ["LICENSE"])
         self.assertEqual(project["requires-python"], ">=3.10,<3.15")
         self.assertIn("torch>=2.3,<3.0", project["dependencies"])
+        self.assertIn(
+            "numpy>=1.26,<2.0; python_version < '3.13'",
+            project["dependencies"],
+        )
+        self.assertIn(
+            "numpy>=2.1,<3.0; python_version >= '3.13'",
+            project["dependencies"],
+        )
         self.assertIn("setuptools>=77.0.3", document["build-system"]["requires"])
 
     def test_license_is_the_canonical_apache_20_text(self) -> None:

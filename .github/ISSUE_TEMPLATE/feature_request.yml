@@ -1,0 +1,41 @@
+name: Feature request
+description: Propose a scoped, testable teaching or systems feature.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and learner value
+      description: What concrete limitation does this solve, and who benefits?
+    validations:
+      required: true
+  - type: textarea
+    id: semantics
+    attributes:
+      label: Expected semantics
+      description: Define inputs, outputs, tensor shapes, and the reference behavior when applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      description: Which correctness tests, baselines, metrics, devices, and failure cases should gate adoption?
+    validations:
+      required: true
+  - type: dropdown
+    id: maturity
+    attributes:
+      label: Proposed maturity
+      options:
+        - Documentation or design only
+        - Experimental implementation
+        - Candidate stable feature
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Primary sources and license notes
+      description: Link official documentation, papers, and source repositories; note licenses for any proposed code adaptation.

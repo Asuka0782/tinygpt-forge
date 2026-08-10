@@ -1,0 +1,52 @@
+name: Bug report
+description: Report a reproducible correctness, compatibility, or performance problem.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve TinyGPT Forge. Do not paste API keys, tokens, private paths, or proprietary data.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem summary
+      description: What happened, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include the smallest command, config, or code sample that reproduces the issue.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include OS, Python, PyTorch, device, CUDA runtime, dtype, and installation method.
+      placeholder: |
+        OS: Windows 11
+        Python: 3.14.x
+        PyTorch: 2.x
+        Device: CPU or GPU model
+        CUDA: not applicable or version
+        dtype: float32
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Logs or measurements
+      description: Remove secrets and private paths. For performance reports, include shape, warm-up, repeats, and synchronization method.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety checks
+      options:
+        - label: I removed credentials and private data from this report.
+          required: true
+        - label: I searched existing issues for the same problem.
+          required: true

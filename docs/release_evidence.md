@@ -7,16 +7,16 @@ Evidence date: 2026-08-10
 - Repository: [Asuka0782/tinygpt-forge](https://github.com/Asuka0782/tinygpt-forge)
 - Visibility: public
 - Default branch: `main`
-- Evidence commit: `61412c8b49c2d2cdba3f07ec331e22d7acbcb854`
+- Package/CI evidence commit: `2c3c762162d30e46c51057b3728f46e2ef2ec565`
 - Project license: Apache-2.0, recognized by GitHub and included in wheel metadata
-- Repository history at this snapshot: 10 scoped commits
+- Repository history at this evidence commit: 11 scoped commits
 
 This is a verified public source snapshot, not a stable API promise. No GitHub Release, Git tag,
 PyPI upload, signed provenance attestation, or long-term support policy is claimed.
 
 ## Successful GitHub Actions run
 
-The [successful CI run](https://github.com/Asuka0782/tinygpt-forge/actions/runs/31381403820)
+The [successful CI run](https://github.com/Asuka0782/tinygpt-forge/actions/runs/31381974143)
 checked the exact evidence commit above.
 
 | Job | Pinned environment | Evidence produced |
@@ -45,8 +45,9 @@ The subsequent run passed without removing the Python 3.10/PyTorch 2.3 lower-bou
 
 ## Local package and hardware evidence
 
-The source snapshot produced a 46,288-byte wheel with SHA-256
-`012e5065a8da27054314d63184a34fb9c85fa4b8d8fba460f37bd68d8ee91749`. It was installed outside
+The source snapshot produced a 46,371-byte local wheel artifact with SHA-256
+`118a5860eb88bb1052136443cc37974aa0b3e0ebefbe35e90679be52024b71eb`. The digest identifies this
+specific build artifact; byte-for-byte reproducible wheel builds are not claimed. The wheel was installed outside
 the repository and reported:
 
 - `License-Expression: Apache-2.0` and packaged `licenses/LICENSE`;
